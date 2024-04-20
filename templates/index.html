@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Recognition in Python</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/index.css')}}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav>
+            <img src="../static/images/logo.png" alt="logo" class="logo">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#login">Formats</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+            <button class="button">Sign In</button>
+        </nav>
+
+        <!-- Transcriber -->
+        <div id="speechContainer">
+            <h1> Online Transcribe App</h1>
+            <h3>Your personal assistant for transcribing</h3>
+            <br/>
+            <h2>Upload Your File Here or Use Microphone</h2>
+
+            <form id="audioFile" method="post" enctype="multipart/form-data" action="/transcribe_file">
+                <input type="file" name="file" />
+                <br/>
+                <input type="submit" id="submitButton" value="Transcribe from file" />
+            </form>
+            <form id="Microphone" method="post" action="/transcribe_microphone">
+                <button id="submitButton" type="submit">Transcribe from Microphone</button>
+            </form>
+
+            {% if transcript != "" %}
+            <div id="speechTranscriptContainer">
+                <h1>Transcript</h1>
+                <br/>
+                <p id="speechText">{{transcript}}</p>
+            </div>
+            {% endif %}
+
+            {% if status_message %}
+            <div id="statusMessageContainer">
+                <p>{{ status_message }}</p>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</body>
+</html>
