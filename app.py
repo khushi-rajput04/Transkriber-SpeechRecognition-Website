@@ -39,7 +39,7 @@ def transcribe_microphone(): # Input from microphone
         recognizer = sr.Recognizer()
         microphone = sr.Microphone()
         with microphone as source:
-            status_message = "Say something..."
+            # status_message = "Say something..."
             recognizer.adjust_for_ambient_noise(source)
             audio_data = recognizer.listen(source, timeout=5)
             status_message = "Audio Captured"
