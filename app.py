@@ -52,3 +52,5 @@ def transcribe_microphone(): # Input from microphone
     return render_template('index.html', transcript=transcript, status_message=status_message)
 
 
+if __name__ == "__main__":
+    app.run(debug=True, threaded=True)
