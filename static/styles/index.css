@@ -36,6 +36,9 @@ nav ul li {
     display: inline-block;
     margin: 10px 20px;
 }
+nav ul li:hover a {
+    color: #00bf63
+}
 
 nav ul li a {
     color: white;
